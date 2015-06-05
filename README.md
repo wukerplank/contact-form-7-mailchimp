@@ -31,7 +31,7 @@ Let's assume you have a form like this:
 
 Then your Mailchimp configuration should look like this:
 
-![screenshot of a filled out Mailchimp form](https://raw.github.com/wukerplank/contact-form-7-mailchimp/master/documentation/screenshots/example.png)
+![screenshot of a filled out Mailchimp form](https://raw.githubusercontent.com/wukerplank/contact-form-7-mailchimp/master/documentation/example.png)
 
 ## License & Copyright
 
