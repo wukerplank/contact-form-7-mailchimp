@@ -1,6 +1,14 @@
 # Contact Form 7 Mailchimp
 
-This Wordpress plugin is an extension to the widely used [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) plugin. This extension enables you to configure a the contact form to push newly submitted data to [Mailchimp](http://mailchimp.com/).
+This Wordpress plugin is an extension to the widely used [Contact Form 7](https://wordpress.org/plugins/contact-form-7/) plugin. This extension enables you to configure a the contact form to push newly submitted data to [Mailchimp](http://mailchimp.com/). This plugin uses the Mailchimp API v3.
+
+## Dependencies
+
+You will at least need PHP 5.3 on your host to use this plugin.
+
+HTTP requests to the Mailchimp API are made via CURL, so make sure it is availabel on your host. On most Debian/Ubuntu hosts you should be able to install the PHP CURL package with
+
+    sudo apt-get install php5-curl
 
 ## Usage
 
@@ -9,17 +17,38 @@ This extension adds another form box to your Contact Form 7 administration. To m
  - your Mailchimp API key (you can get one on their website)
  - the ID of the list you wish to submit your new contacts to
  - the names of several input fields of you form containing information about:
-   - name of the subscriber
+   - firstname of the subscriber
+   - lastname of the subscriber
    - email of the subscriber
    - acceptance field for the subscriber's opt-in
  - optionally you may also provide a list of fields you also want to send to the mailchimp list
+
+### Acceptance field
+
+If you leave the acceptance field empty the subscriber will be added to your list no matter what. **Warning:** This might be illegal in your country! You may be required to let the subscriber opt-in to your newsletter.
+
+If you provide an accepance field its value will be interpreted like this:
+
+Interpreted as **yes**:
+ - yes (case ignored)
+ - true (case ignored)
+ - 1
+
+Interpreted as **no**:
+ - no (case ignored)
+ - false (case ignored)
+ - 0
+ - [empty]
 
 ## Example
 
 Let's assume you have a form like this:
 
-    <p>Name<br />
-    [text* name]</p>
+    <p>Firstname<br />
+    [text* firstname]</p>
+
+    <p>Lastname<br />
+    [text* lastname]</p>
 
     <p>Pet's name<br />
     [text* pets_name]</p>
@@ -32,6 +61,11 @@ Let's assume you have a form like this:
 Then your Mailchimp configuration should look like this:
 
 ![screenshot of a filled out Mailchimp form](https://raw.githubusercontent.com/wukerplank/contact-form-7-mailchimp/master/documentation/example.png)
+
+## To-Do
+
+ - [ ] Make custom fields more dynamic (add/remove buttons)
+ - [ ] Provide an option to create a new list
 
 ## License & Copyright
 
