@@ -30,15 +30,12 @@ If you leave the acceptance field empty the subscriber will be added to your lis
 If you provide an accepance field its value will be interpreted like this:
 
 Interpreted as **yes**:
+ - ok (case ignored)
  - yes (case ignored)
  - true (case ignored)
  - 1
 
-Interpreted as **no**:
- - no (case ignored)
- - false (case ignored)
- - 0
- - [empty]
+All other values (including an empty field) will be interpreted es **no**.
 
 ## Example
 
@@ -62,10 +59,25 @@ Then your Mailchimp configuration should look like this:
 
 ![screenshot of a filled out Mailchimp form](https://raw.githubusercontent.com/wukerplank/contact-form-7-mailchimp/master/documentation/example.png)
 
+## Tests
+
+I tried to cover as much functionality as possible. Right now the wrapper for the Mailchimp API is untested. I'm pretty new to PHP testing and I need to find a way to test the gem without hitting the Mailchimp API constantly.
+
+In order to run the tests you need to have (PHPUnit)[https://phpunit.de] installed. You can run the tests like this:
+
+    cd path/to/contact-form-7-mailchimp
+    phpunit tests/*
+
+## Thanks & Acknoledgements
+
+This extension is based and inspired by Renzo Johnson's [Contact Form 7 MailChimp Extension](https://wordpress.org/plugins/contact-form-7-mailchimp-extension/). Sadly, at the time of writing it was broken and inserted HTML with backlinks into the public facing Contact Form 7 output.
+
 ## To-Do
 
+ - [ ] Add a toggle field and collapse the whole fieldset
  - [ ] Make custom fields more dynamic (add/remove buttons)
  - [ ] Provide an option to create a new list
+ - [ ] Tests for the Mailchimp API wrapper
 
 ## License & Copyright
 
