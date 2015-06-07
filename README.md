@@ -57,6 +57,10 @@ Let's assume you have a form like this:
 
 Then your Mailchimp configuration should look like this:
 
+## Custom Fields
+
+Make sure you configure your custom fields in the Mailchimp backend **before** you start sending data!
+
 ![screenshot of a filled out Mailchimp form](https://raw.githubusercontent.com/wukerplank/contact-form-7-mailchimp/master/documentation/example.png)
 
 ## Tests
@@ -78,6 +82,8 @@ This extension is based and inspired by Renzo Johnson's [Contact Form 7 MailChim
  - [ ] Make custom fields more dynamic (add/remove buttons)
  - [ ] Provide an option to create a new list
  - [ ] Tests for the Mailchimp API wrapper
+ - [ ] Warn about API keys without hint about datacenter
+ - [ ] Add more screenshots to explain the plugin & the Mailchimp backend
 
 ## License & Copyright
 
